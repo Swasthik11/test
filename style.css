@@ -66,6 +66,66 @@ header, .about, .objectives, footer {
   border-bottom: 1px solid #e8c6f4;
   position: relative;
 }
+/* Ensure hamburger stays on top */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #7b2d8a;
+  cursor: pointer;
+  z-index: 3001;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+/* Slide-in Nav for Mobile */
+@media (max-width: 768px) {
+  #nav-links {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    background: #fff;
+    width: 260px;
+    height: 100vh;
+    padding: 60px 20px 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+    transition: left 0.3s ease-in-out;
+  }
+
+  #nav-links.show {
+    left: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .close-btn {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #7b2d8a;
+    cursor: pointer;
+  }
+
+  #nav-links li {
+    margin: 15px 0;
+  }
+}
+.hamburger {
+  position: fixed; /* instead of absolute */
+  top: 20px;
+  right: 20px;
+  z-index: 9999; /* highest priority */
+}
 
 #nav-links {
   display: flex;
