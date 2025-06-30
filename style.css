@@ -1,5 +1,4 @@
 /* Reset */
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +8,42 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   color: #333;
+  line-height: 1.6;
   background: #fff;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Decorative Leaf Image */
+.leaf-top-right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 150px;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Watermark Text */
+body::after {
+  content: "SANJEEVINI";
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  font-size: 80px;
+  font-weight: bold;
+  color: #000;
+  opacity: 0.05;
+  font-family: 'Segoe UI', sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header, .about, .objectives, footer {
+  position: relative;
+  z-index: 1;
 }
 
 /* Top Bar */
@@ -22,90 +55,37 @@ body {
   font-size: 14px;
 }
 
-/* Decorative Leaf */
-.leaf-top-right {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 150px;
-  opacity: 0.2;
-  z-index: 5;
-}
-
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 20px;
   background: #fff;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e8c6f4;
   position: relative;
   z-index: 1000;
 }
 
-.navbar .logo {
-  height: 50px;
-}
-
-/* Hamburger Icon */
+/* Hamburger */
 .hamburger {
   display: none;
-  font-size: 26px;
+  font-size: 28px;
   background: none;
   border: none;
-  cursor: pointer;
   color: #7b2d8a;
-  z-index: 1001;
+  cursor: pointer;
+  z-index: 10001;
 }
 
-/* Nav Links (desktop default) */
+/* Nav Links - Desktop */
 #nav-links {
-  list-style: none;
   display: flex;
-  gap: 25px;
+  list-style: none;
+  gap: 20px;
 }
 
 #nav-links li a {
-  text-decoration: none;
-  font-weight: 500;
-  color: #333;
-}
-
-#nav-links li a.active,
-#nav-links li a:hover {
-  color: #7b2d8a;
-}
-
-/* Responsive Mobile Nav */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  #nav-links {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: #fff;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    z-index: 1000;
-  }
-
-  #nav-links.show {
-    display: flex;
-  }
-}
-
-#nav-links li {
-  list-style: none;
-}
-
-.navbar a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
@@ -118,35 +98,44 @@ body {
 
 /* Mobile Nav Menu */
 @media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+  }
+
   #nav-links {
     flex-direction: column;
     position: fixed;
-    top: 60px;
-    right: 20px;
+    top: 0;
+    left: -100%;
+    width: 260px;
+    height: 100vh;
     background: white;
-    width: 200px;
-    padding: 20px 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: none;
-    z-index: 9998;
-    transition: all 0.3s ease-in-out;
+    padding: 60px 20px 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    transition: left 0.3s ease-in-out;
   }
 
   #nav-links.show {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
+    left: 0;
   }
 
   .close-btn {
-    display: none;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #7b2d8a;
+    cursor: pointer;
   }
 
   #nav-links li {
-    margin: 10px 0;
+    margin: 15px 0;
   }
 }
 
@@ -164,17 +153,16 @@ body {
 
 .about-content {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 40px;
   flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
 }
 
 .about-content img {
-  max-width: 100%;
   width: 300px;
   border-radius: 10px;
   box-shadow: 0 0 10px #ccc;
+  max-width: 100%;
 }
 
 .about-content > div {
@@ -198,25 +186,33 @@ body {
   margin-right: 10px;
 }
 
-/* Objectives */
+/* Objectives Section */
+.objectives {
+  padding: 40px 30px;
+}
+
+.objectives h2 {
+  color: #7b2d8a;
+  margin-bottom: 20px;
+}
+
 .objectives-list {
   list-style: none;
   padding-left: 0;
 }
 
 .objectives-list li {
-  margin-bottom: 15px;
-  font-size: 16px;
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
 }
 
 .bullet-icon {
   color: #7b2d8a;
   font-size: 18px;
   flex-shrink: 0;
-  line-height: 1.5;
 }
 
 /* Footer */
@@ -318,7 +314,7 @@ footer {
   color: #fff;
 }
 
-/* Mobile Fixes */
+/* Responsive Fixes */
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column;
