@@ -14,18 +14,19 @@
   <header>
     <div class="top-bar">Helpline : 6366975666</div>
     <nav class="navbar">
-  <img src="header_logo.svg" alt="Logo" />
-  <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
+      <img src="header_logo.svg" alt="Cancer Ribbon" />
 
-  <ul id="nav-links">
-    <button class="close-btn" onclick="toggleMobileMenu()">✕</button>
-    <li><a href="home.html">Home</a></li>
-    <li><a class="active" href="index.html">About Us</a></li>
-    <li><a href="involved.html">Get Involved</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-  </ul>
-</nav>
+      <!-- Hamburger Menu Icon -->
+      <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
 
+      <!-- Navigation Links -->
+      <ul id="nav-links" class="mobile-hidden">
+        <li><a href="home.html">Home</a></li>
+        <li><a class="active" href="index.html">About Us</a></li>
+        <li><a href="involved.html">Get Involved</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Page Content -->
@@ -61,7 +62,6 @@
       <li><span class="bullet-icon">🎗️</span> Old age home for the needy via a sustainable model.</li>
     </ul>
   </section>
-  
 
   <footer>
     <nav class="footer-nav">
@@ -98,42 +98,12 @@
     </div>
   </footer>
 
-  <!-- Toggle script -->
-  <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
-
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-    });
-
-    // Optional: Close nav on link click (mobile)
-    const links = navLinks.querySelectorAll("a");
-    links.forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-      });
-    });
-  </script>
+  <!-- Hamburger Toggle Script -->
   <script>
     function toggleMobileMenu() {
       const navLinks = document.getElementById('nav-links');
-      navLinks.classList.toggle('show');
+      navLinks.classList.toggle('mobile-visible');
     }
-   
-  function toggleMobileMenu() {
-    const nav = document.getElementById('nav-links');
-    nav.classList.toggle('show');
-  }
-   
-  function toggleMobileMenu() {
-    const navLinks = document.getElementById('nav-links');
-    navLinks.classList.toggle('show');
-  }
-
-
-
-
   </script>
 </body>
 </html>
