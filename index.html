@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Get Involved - Sanjeevini Trust</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="aboutus.css" />
 </head>
 <body>
   <!-- Top-right leaf image -->
@@ -18,7 +18,7 @@
 
       <!-- Dropdown Hamburger Menu -->
       <div class="dropdown">
-        <button class="hamburger" onclick="toggleDropdown()">☰</button>
+        <button class="hamburger" aria-expanded="false" onclick="toggleDropdown()">☰</button>
         <ul id="dropdown-menu" class="dropdown-menu">
           <li><a href="home.html">Home</a></li>
           <li><a class="active" href="aboutus.html">About Us</a></li>
@@ -102,15 +102,18 @@
   <script>
     function toggleDropdown() {
       const dropdown = document.getElementById('dropdown-menu');
-      dropdown.classList.toggle('show');
+      const button = document.querySelector('.hamburger');
+      const isOpen = dropdown.classList.toggle('show');
+      button.setAttribute('aria-expanded', isOpen);
     }
 
     // Close dropdown when clicking outside
-    window.addEventListener('click', function(e) {
+    window.addEventListener('click', function (e) {
       const dropdown = document.getElementById('dropdown-menu');
       const button = document.querySelector('.hamburger');
       if (!button.contains(e.target) && !dropdown.contains(e.target)) {
         dropdown.classList.remove('show');
+        button.setAttribute('aria-expanded', false);
       }
     });
   </script>
