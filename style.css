@@ -38,7 +38,6 @@ body::after {
   opacity: 0.05;
   z-index: 0;
   pointer-events: none;
-  font-family: 'Segoe UI', sans-serif;
   white-space: nowrap;
 }
 
@@ -78,7 +77,7 @@ header, .about, .objectives, footer {
   display: none;
 }
 
-/* Dropdown menu */
+/* Dropdown */
 .dropdown {
   position: relative;
 }
@@ -86,20 +85,20 @@ header, .about, .objectives, footer {
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 40px;
-  right: 0;
+  top: 50px;
+  right: 10px;
   background: #fff;
   border: 1px solid #e4c2f1;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   list-style: none;
   padding: 10px 0;
-  z-index: 1001;
-  width: 180px;
+  z-index: 2000;
+  width: 200px;
 }
 
 .dropdown-menu li {
-  padding: 10px 20px;
+  padding: 12px 20px;
 }
 
 .dropdown-menu a {
@@ -107,28 +106,19 @@ header, .about, .objectives, footer {
   color: #7b2d8a;
   font-weight: 500;
   display: block;
+  font-size: 16px;
 }
 
 .dropdown-menu a:hover {
   background-color: #f5ecf9;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .dropdown-menu.show {
   display: block;
 }
 
-/* Desktop Nav - Hide mobile dropdown */
-#nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
-#nav-links li {
-  list-style: none;
-}
-
+/* Active & hover state */
 .navbar a {
   text-decoration: none;
   color: #333;
@@ -142,17 +132,13 @@ header, .about, .objectives, footer {
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
-  #nav-links {
-    display: none;
-  }
-
   .hamburger {
     display: block;
   }
 
   .dropdown-menu {
-    top: 45px;
-    right: 10px;
+    top: 48px;
+    right: 8px;
     width: 200px;
   }
 }
